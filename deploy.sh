@@ -30,6 +30,7 @@ git reset --hard origin/$BRANCH
 git clean -f
 git pull
 git checkout $BRANCH
+npm install
 
 forever stop index.js
 forever start index.js
