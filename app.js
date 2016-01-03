@@ -12,7 +12,7 @@ var express = require('express'),
 	app = express();
 
 // all environments
-app.set('port', process.env.PORT || 8080);
+app.set('port', 8080);
 
 app.get('/', function (req, res, next) {
 	res.send('Hello World!')
