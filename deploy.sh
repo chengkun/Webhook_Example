@@ -16,7 +16,7 @@
 if [[ -n "$1" ]] ; then
 	PROJECT_NAME=$1
 else
-	PROJECT_NAME="lm-blog"
+	PROJECT_NAME="soilborne"
 fi
 
 if [[ -n "$2" ]] ; then
@@ -25,11 +25,15 @@ else
 	BRANCH="master"
 fi
 
-cd /webroot/$PROJECT_NAME
+cd $HOME/$PROJECT_NAME
 git reset --hard origin/$BRANCH
 git clean -f
 git pull
 git checkout $BRANCH
+npm install
+
+forever stop index.js
+forever start index.js
 
 # forever stop index.js
 # NODE_ENV=production forever start index.js
